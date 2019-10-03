@@ -2,5 +2,4 @@
 headless: true
 ---
 
-- [**DOCS**](/docs)
-- [**POSTS**](/posts)
+- [**POSTS**]({{< relref "/posts" >}})
