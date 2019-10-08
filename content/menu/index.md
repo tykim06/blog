@@ -1,5 +1,0 @@
----
-headless: true
----
-
-- [**POSTS**](/posts)
