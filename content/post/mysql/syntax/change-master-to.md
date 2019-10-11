@@ -1,11 +1,11 @@
 ---
-title: "CHANGE MASTER TO"
+title: "Change Master To"
 date: 2019-10-08T15:40:25+09:00
 categories:
 - mysql
 - syntax
 tags:
-- change master to
+- change-master-to
 - replication
 - binlog
 - relaylog
@@ -53,6 +53,20 @@ channel_option:
 
 server_id_list:
     [server_id [, server_id] ... ]
+```
+
+# 예시 구문
+---
+
+```
+CHANGE MASTER TO
+  MASTER_HOST='db01',
+  MASTER_PORT=3306,
+  MASTER_USER='replication',
+  MASTER_PASSWORD='mysqlpass',
+  MASTER_LOG_FILE='mysql-bin.000012',
+  MASTER_LOG_POS=4,
+  MASTER_CONNECT_RETRY=10;
 ```
 
 # 출처
