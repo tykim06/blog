@@ -11,9 +11,11 @@ tags:
 - relaylog
 ---
 
-***CHANGE MASTER*** TO changes the parameters that the slave server uses for connecting to the master server, for reading the master binary log, and reading the slave relay log. It also updates the contents of the master info and relay log info repositories. ***CHANGE MASTER TO*** requires the ***SUPER*** privilege.
+***CHANGE MASTER TO*** changes the parameters that the slave server uses for connecting to the master server, for reading the master binary log, and reading the slave relay log. It also updates the contents of the master info and relay log info repositories.
 
 <!--more-->
+
+***CHANGE MASTER TO*** requires the ***SUPER*** privilege.
 
 # 구문
 ---

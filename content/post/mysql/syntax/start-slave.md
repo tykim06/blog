@@ -9,8 +9,11 @@ tags:
 - replication
 ---
 
-***START SLAVE*** with no thread_type options starts both of the slave threads. The I/O thread reads events from the master server and stores them in the relay log. The SQL thread reads events from the relay log and executes them. ***START SLAVE*** requires the ***REPLICATION_SLAVE_ADMIN*** or ***SUPER*** privilege.
+***START SLAVE*** with no thread_type options starts both of the slave threads. The I/O thread reads events from the master server and stores them in the relay log. The SQL thread reads events from the relay log and executes them.
+
 <!--more-->
+
+***START SLAVE*** requires the ***REPLICATION_SLAVE_ADMIN*** or ***SUPER*** privilege.
 
 # 구문
 ---

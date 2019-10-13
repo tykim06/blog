@@ -5,3 +5,6 @@
 	path = public
 	url = https://github.com/tykim06/tykim06.github.io.git
 	branch = master
+[submodule "themes/hugo-tranquilpeak-theme"]
+	path = themes/hugo-tranquilpeak-theme
+	url = https://github.com/tykim06/hugo-tranquilpeak-theme.git

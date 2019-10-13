@@ -9,15 +9,19 @@ tags:
 - replication
 ---
 
-***CHANGE REPLICATION*** FILTER sets one or more replication filtering rules on the slave in the same way as starting the slave mysqld with replication filtering options such as *--replicate-do-db* or *--replicate-wild-ignore-table*. Unlike the case with the server options, this statement does not require restarting the server to take effect, only that the slave SQL thread be stopped using ***STOP SLAVE SQL_THREAD*** first (and restarted with ***START SLAVE SQL_THREAD*** afterwards). ***CHANGE REPLICATION FILTER*** requires the ***REPLICATION_SLAVE_ADMIN*** or ***SUPER*** privilege. Use the FOR CHANNEL channel clause to make a replication filter specific to a replication channel, for example on a multi-source replication slave. Filters applied without a specific FOR CHANNEL clause are considered global filters, meaning that they are applied to all replication channels.
+***CHANGE REPLICATION FILTER*** sets one or more replication filtering rules on the slave in the same way as starting the slave mysqld with replication filtering options such as *--replicate-do-db* or *--replicate-wild-ignore-table*.
+
 <!--more-->
+
+Unlike the case with the server options, this statement does not require restarting the server to take effect, only that the slave SQL thread be stopped using ***STOP SLAVE SQL_THREAD*** first (and restarted with ***START SLAVE SQL_THREAD*** afterwards).
+
+***CHANGE REPLICATION FILTER*** requires the ***SUPER*** privilege.
 
 # 구문
 ---
 
 ```
-CHANGE REPLICATION FILTER filter[, filter]
-	[, ...] [FOR CHANNEL channel]
+CHANGE REPLICATION FILTER filter[, filter][, ...]
 
 filter:
     REPLICATE_DO_DB = (db_list)
@@ -32,7 +36,7 @@ db_list:
     db_name[, db_name][, ...]
 
 tbl_list:
-    db_name.table_name[, db_name.table_name][, ...]
+    db_name.table_name[, db_table_name][, ...]
 wild_tbl_list:
     'db_pattern.table_pattern'[, 'db_pattern.table_pattern'][, ...]
 
@@ -48,11 +52,11 @@ db_pair:
 
 ```
 CHANGE REPLICATION FILTER REPLICATE_DO_DB = (d1), REPLICATE_IGNORE_DB = (d2);
-CHANGE REPLICATION FILTER REPLICATE_WILD_DO_TABLE = ('db1.old%'); 
+CHANGE REPLICATION FILTER REPLICATE_WILD_DO_TABLE = ('db1.old%');
 CHANGE REPLICATION FILTER REPLICATE_WILD_IGNORE_TABLE = ('db1.new%', 'db2.new%');
 ```
 
 # 출처
 ---
 
-> https://dev.mysql.com/doc/refman/8.0/en/change-replication-filter.html
+> https://dev.mysql.com/doc/refman/5.7/en/change-replication-filter.html
