@@ -3,7 +3,6 @@ title: "Change Master To"
 date: 2019-10-08T15:40:25+09:00
 categories:
 - mysql
-- syntax
 tags:
 - change-master-to
 - replication

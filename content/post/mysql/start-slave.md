@@ -3,7 +3,6 @@ title: "Start Slave"
 date: 2019-10-11T14:19:02+09:00
 categories:
 - mysql
-- syntax
 tags:
 - start-slave
 - replication

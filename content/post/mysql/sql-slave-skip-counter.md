@@ -3,7 +3,6 @@ title: "sql_slave_skip_counter"
 date: 2019-10-11T17:10:34+09:00
 categories:
 - mysql
-- variable
 tags:
 - replication
 - sql_slave_skip_counter

@@ -3,7 +3,6 @@ title: "secure_file_priv"
 date: 2019-10-16T18:58:07+09:00
 categories:
 - mysql
-- variable
 tags:
 - file
 - secure_file_priv

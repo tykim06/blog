@@ -3,7 +3,6 @@ title: "Change Replication Filter"
 date: 2019-10-11T17:22:20+09:00
 categories:
 - mysql
-- syntax
 tags:
 - change-replication-filter
 - replication
