@@ -11,7 +11,7 @@ tags:
 #thumbnailImage: //example.com/image.jpg
 ---
 
-MySQL 5.7 은 online DDL을 지원하지만 varchar 컬럼 길이 변경 시 일부 지원 되지 않는 경우가 있다.
+MySQL 5.7 은 VARCHAR column size 변경 시 online DDL을 지원하지만 일부 지원 되지 않는 경우가 있다.
 <!--more-->
 
 
@@ -24,13 +24,12 @@ Operation			| In Place	| Rebuilds Table	| Permits Concurrent DML	| Only Modifies
 ---				| ---		| ---			| --- 				| ---
 Extending VARCHAR column size	| Yes		| No			| Yes				| Yes
 
-Column 길이 변경 시 **Rebuilds Table**이 발생하면 online DDL이 불가하다.
-그렇다면, **Rebuilds Table**이 발생하는 경우는 언제 일까?
+MySQL 5.7은 공식적으로 extending VARCHAR column size online DDL을 지원한다. 그렇다면, online DDL이 지원되지 않는 경우는 언제 일까?
 
 > The number of length bytes required by a VARCHAR column must remain the same. For VARCHAR columns of 0 to 255 bytes in size, one length byte is required to encode the value. For VARCHAR columns of 256 bytes in size or more, two length bytes are required. As a result, in-place ALTER TABLE only supports increasing VARCHAR column size from 0 to 255 bytes, or from 256 bytes to a greater size. ***In-place ALTER TABLE does not support increasing the size of a VARCHAR column from less than 256 bytes to a size equal to or greater than 256 bytes. In this case, the number of required length bytes changes from 1 to 2, which is only supported by a table copy (ALGORITHM=COPY).***
 
 
-**Rebuilds Table** 발생하는 경우는 255 bytes 이하에서 256 bytes 이상으로 변경할 때 발생한다. 255 bytes 까지는 column size 저장을 위해 1 byte가 필요하지만 256 bytes 부터는 column size 저장을 위해 2 bytes가 필요하다.
+255 bytes 이하에서 256 bytes 이상으로 변경하는 경우에 ALGORITHM=COPY로 동작하여 online DDL 지원이 불가하다. VARCHAR 255 bytes 까지는 column size 저장을 위해 1 byte가 필요하지만 256 bytes 부터는 column size 저장을 위해 2 bytes가 필요하다.
 
 # 255 bytes 계산
 ---
